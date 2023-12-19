@@ -2,26 +2,27 @@ const numbers = document.querySelectorAll(".number");
 const operations = document.querySelectorAll(".operation");
 const bntEqual = document.querySelector("#btn-equal");
 const decimal = document.querySelector("#btn-decimal");
+const buttonC = document.querySelector("#btn-c");
 let num1 = "";
 let num2 = "";
+let operator = 0;
 
-// we are listening to our first number
 function getNum1() {
   for (let i = 0; i < numbers.length; i++) {
     numbers[i].addEventListener("click", recordNum1);
   }
   decimal.addEventListener("click", decimalAddAndRemoveNum1);
 }
+
 function decimalAddAndRemoveNum1(e) {
-  // adds
   recordNum1(e);
-  //removes event listener
+
   decimal.removeEventListener("click", decimalAddAndRemoveNum1);
 }
+
 function decimalAddAndRemoveNum2(e) {
-  // adds
   recordNum2(e);
-  //removes event listener
+
   decimal.removeEventListener("click", decimalAddAndRemoveNum2);
 }
 
@@ -31,7 +32,6 @@ function recordNum1(e) {
   console.log(num1);
 }
 
-let operator = 0;
 // this is listening for our operations
 const getOperation = () => {
   for (let i = 0; i < operations.length; i++) {
@@ -95,9 +95,20 @@ const classifyOperation = (id) => {
     case "sub":
       return num1 - num2;
     default:
-      console.log("OOOPS SOMETHING WENT WRONG");
+      console.log("OOPS SOMETHING WENT WRONG");
   }
 };
+
+
+
+// we need to create our reset button
+
+const returnZero = () => {
+    buttonC.addEventListener('click', function() {
+        console.log('working')
+    })
+}
+returnZero();
 
 function calculate() {
   getNum1();
