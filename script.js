@@ -3,6 +3,7 @@ const operatorButton = document.querySelectorAll(".operation");
 const numbers = document.querySelectorAll(".number");
 const decimal = document.querySelector("#btn-decimal");
 const equalButton = document.querySelector("#btn-equal");
+const buttonC = document.querySelector("#btn-c");
 let firstNumberString = "";
 let secondNumberString = "";
 
@@ -40,6 +41,7 @@ const secondNumberStringRecord = (e) => {
 
 // this also records our number string but only allows us to click our decimal once
 const decimalButtonSecondNumber = (e) => {
+  console.log("Decimal button clicked for the second number");
   secondNumberStringRecord(e);
   decimal.removeEventListener("click", decimalButtonSecondNumber);
 };
@@ -51,6 +53,7 @@ const operatorRecord = (e) => {
   console.log("operator:");
   console.log(e.target.value);
   for (let i = 0; i < operatorButton.length; i++) {
+    firstNumberString = parseFloat(firstNumberString);
     operatorButton[i].removeEventListener("click", operatorRecord);
   }
   for (let i = 0; i < numbers.length; i++) {
@@ -70,20 +73,32 @@ const operation = () => {
 // this button listens for our equal button
 const listenEqual = () => {
   equalButton.addEventListener("click", () => {
-    firstNumberString = parseFloat(firstNumberString);
     secondNumberString = parseFloat(secondNumberString);
-    reset();
+    displayResult();
+    resetNums();
   });
 };
 
+// this is used to keep track of our results
+function displayResult() {
+  secondNumberString = parseFloat(secondNumberString);
+  console.log(mathFunction(operator));
+}
+
 // we need to reset our function once we obtain our results
-const reset = () => {
+const resetNums = () => {
   firstNumberString = mathFunction(operator);
   console.log("result:", firstNumberString);
-  secondNumberString = "";
   for (let i = 0; i < numbers.length; i++) {
     numbers[i].removeEventListener("click", secondNumberStringRecord);
   }
+  for (let i = 0; i < operatorButton.length; i++) {
+    operatorButton[i].addEventListener("click", () => {
+      secondNumberString = "";
+    });
+  }
+  decimal.setAttribute("disabled", true);
+
   operation();
 };
 
@@ -105,6 +120,21 @@ const mathFunction = (id) => {
   }
 };
 
-firstNumber();
-operation();
-listenEqual();
+// our c button will reset the whole calculator by refreshing the page
+
+const resetCalculator = () => {
+  buttonC.addEventListener("click", () => {
+    location.reload();
+  });
+};
+
+// our Ac button will turn off our calculator
+
+function calculate() {
+  firstNumber();
+  operation();
+  listenEqual();
+  resetCalculator();
+}
+
+calculate();

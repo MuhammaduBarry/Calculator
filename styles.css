@@ -32,3 +32,9 @@ body {
     grid-column: 3 / span 2;
     grid-row: 5;
 }
+
+#btn-decimal:disabled {
+    opacity: 1;
+    cursor: not-allowed;
+  }
+  
