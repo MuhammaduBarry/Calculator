@@ -33,7 +33,7 @@ const secondNumber = () => {
   decimal.addEventListener("click", decimalButtonSecondNumber);
 };
 // this tracks our second number
-const secondNumberStringRecord = (e) => {
+const secondNumberStringRe~ord = (e) => {
   console.log("numberString 2:");
   secondNumberString += e.target.value;
   console.log(secondNumberString);
