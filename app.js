@@ -1,4 +1,4 @@
-const numbers = document.querySelectorAll(".number");
+const numbers = document.querySelectorAll(".number"); 
 const operations = document.querySelectorAll(".operation");
 const bntEqual = document.querySelector("#btn-equal");
 const decimal = document.querySelector("#btn-decimal");

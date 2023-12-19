@@ -1,11 +1,10 @@
-
-
-
-## process cycle 2
-<!-- # 1. we want to store our result value  -->
-<!-- # 2. we want to take our value and store it in our left number -->
-<!-- # 3. we listen for our operator event  -->
-<!-- # 4. take our left operand event and  -->
-# 5. calculate our new result on equal to event
-# 6. repeat the process our operator then listen for our right operand
-# 7. we repeat the result cycle to give us a new result
+ # 1. we are using the console to create the functionality
+ # 2. we need to grab the class numbers and operator to receive our values
+ # 3. we created a loop is that whenever we click our button we know which one is being clicked
+ # 4. we create a  the first number functionality 
+ # 5. we end the first number function once our operator is clicked
+ # 6. we then create our second number functionality 
+ # 7. we end it once our result button is being clicked
+ # 8. we do our operation
+ # 9. we need to make sure our numbers can only take in one decimal
+ # 10. GOOD LUCK!
