@@ -4,6 +4,7 @@ const numbers = document.querySelectorAll(".number");
 const decimal = document.querySelector("#btn-decimal");
 const equalButton = document.querySelector("#btn-equal");
 const buttonC = document.querySelector("#btn-c");
+const buttonAC = document.querySelector("#btn-ac");
 const inputDisplay = document.querySelector(".input-display");
 let firstNumberString = "";
 let secondNumberString = "";
@@ -85,9 +86,9 @@ function displayResult() {
   let mathResult = mathFunction(operator);
   inputDisplay.placeholder = mathResult;
   if (inputDisplay.placeholder === "NaN") {
-    alert("Sorry Wrong Input Please Press C to restart");
+    alert("Sorry Wrong Input Please Press C or AC to restart");
   } else if (inputDisplay.placeholder === "undefined") {
-    alert("Sorry Wrong Input Please Press C to restart");
+    alert("Sorry Wrong Input Please Press C or AC to restart");
   }
 }
 
@@ -127,7 +128,7 @@ const mathFunction = (id) => {
 
 // our c button will reset the whole calculator by refreshing the page
 
-const resetCalculator = () => {
+const resetCalculator1 = () => {
   buttonC.addEventListener("click", () => {
     location.reload();
   });
@@ -135,11 +136,18 @@ const resetCalculator = () => {
 
 // our Ac button will turn off our calculator
 
+const resetCalculator2 = () => {
+  buttonAC.addEventListener("click", () => {
+    location.reload();
+  });
+};
+
 function calculate() {
   firstNumber();
   operation();
   listenEqual();
-  resetCalculator();
+  resetCalculator1();
+  resetCalculator2();
 }
 
 calculate();
