@@ -11,26 +11,106 @@ body {
 }
 
 .grid-container {
-    border: 3px solid black;
+    margin-top: 3rem;
+    border: 3px solid rgb(44, 43, 43);;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    max-width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1rem;
+    background-color: rgb(44, 43, 43);;
+    border-radius: 1.5rem;
 }
-
+.flex-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: fit-content;
+    background-color: rgb(44, 43, 43);
+}
 .input-display {
-    border: 2px solid red;
-    padding: 20px;
+    border: 2px solid grey;
+    border-radius: 1.5rem;
+    padding-top: 1rem;
+    padding-bottom: 1.9rem;
+    padding-left: 1.8rem;
+    padding-right: 1.8rem;
+    text-align: right;
+    max-width: auto;
+    background-color: rgb(69, 68, 68);
+    font-size: 25px;
+    margin-bottom: 10px;
 }
-
+::-webkit-input-placeholder {
+    color:white;
+}
 .btn-container {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
+}
+.btn-container > * {
+    margin: 1rem;
+    padding: 1rem;
+    color: white;
+    background-color: grey;
+    border: none;
+    box-shadow:  4px 5px black;
+    font-weight: bold;
+    font-size: 1rem;
+}
+.btn-container > *:hover {
+    margin: 1rem;
+    transform: translateY(-5px);
+    transition: all .15s ease-in-out;
+}
+.btn-container > .operation:hover {
+    margin: 1rem;
+    transform: translateY(-5px);
+    transition: all .15s ease-in-out;
+    background-color: rgba(45, 253, 253, 0.762);
+}
+.btn-container > #btn-ac:hover,
+ #btn-c:hover {
+    margin: 1rem;
+    transform: translateY(-5px);
+    transition: all .15s ease-in-out;
+    background-color: rgba(255, 22, 22, 0.763);
+}
+.btn-container > #btn-equal:hover {
+    margin: 1rem;
+    transform: translateY(-5px);
+    transition: all .15s ease-in-out;
+    background-color: rgba(5, 185, 5, 0.83);
+}
+.btn-container > .number:hover,
+#btn-decimal:hover {
+    margin: 1rem;
+    transform: translateY(-5px);
+    transition: all .15s ease-in-out;
+    background-color: rgb(237, 187, 6);
+}
+.operation{
+    padding: 1rem;
+    border-radius: 2rem;
+}
+
+.number{
+    padding: 1rem;
+    border-radius: 2rem;
 }
 
 #btn-equal {
     grid-column: 3 / span 2;
     grid-row: 5;
+    border-radius: 2rem;
+}
+.btn-container > #btn-ac,
+#btn-c,
+#btn-decimal {
+    border-radius: 2rem;
 }
 
 #btn-decimal:disabled {
