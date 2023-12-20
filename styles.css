@@ -32,7 +32,7 @@ body {
     background-color: rgb(44, 43, 43);
 }
 .input-display {
-    border: 2px solid grey;
+    border: 2px solid rgb(69, 68, 68);;
     border-radius: 1.5rem;
     padding-top: 1rem;
     padding-bottom: 1.9rem;

@@ -4,6 +4,7 @@ const numbers = document.querySelectorAll(".number");
 const decimal = document.querySelector("#btn-decimal");
 const equalButton = document.querySelector("#btn-equal");
 const buttonC = document.querySelector("#btn-c");
+const inputDisplay = document.querySelector(".input-display");
 let firstNumberString = "";
 let secondNumberString = "";
 
@@ -12,12 +13,12 @@ const firstNumber = () => {
     numbers[i].addEventListener("click", firstNumberStringRecord);
   }
   decimal.addEventListener("click", decimalButtonFirstNumber);
+
 };
 // this records and tracks our number string
 const firstNumberStringRecord = (e) => {
-  console.log("numberString 1:");
-  firstNumberString += e.target.value;
-  console.log(firstNumberString);
+  let firstValue = (firstNumberString += e.target.value);
+  inputDisplay.placeholder = firstValue;
 };
 
 // this also records our number string but only allows us to click our decimal once
@@ -31,17 +32,16 @@ const secondNumber = () => {
     numbers[i].addEventListener("click", secondNumberStringRecord);
   }
   decimal.addEventListener("click", decimalButtonSecondNumber);
+  
 };
 // this tracks our second number
 const secondNumberStringRecord = (e) => {
-  console.log("numberString 2:");
-  secondNumberString += e.target.value;
-  console.log(secondNumberString);
+  let secondValue = (secondNumberString += e.target.value);
+  inputDisplay.placeholder = secondValue;
 };
 
 // this also records our number string but only allows us to click our decimal once
 const decimalButtonSecondNumber = (e) => {
-  console.log("Decimal button clicked for the second number");
   secondNumberStringRecord(e);
   decimal.removeEventListener("click", decimalButtonSecondNumber);
 };
@@ -50,8 +50,8 @@ const decimalButtonSecondNumber = (e) => {
 let operator;
 
 const operatorRecord = (e) => {
-  console.log("operator:");
-  console.log(e.target.value);
+  let operatorResult = e.target.value;
+  inputDisplay.placeholder = operatorResult;
   for (let i = 0; i < operatorButton.length; i++) {
     firstNumberString = parseFloat(firstNumberString);
     operatorButton[i].removeEventListener("click", operatorRecord);
@@ -82,7 +82,13 @@ const listenEqual = () => {
 // this is used to keep track of our results
 function displayResult() {
   secondNumberString = parseFloat(secondNumberString);
-  console.log(mathFunction(operator));
+  let mathResult = mathFunction(operator);
+  inputDisplay.placeholder = mathResult;
+  if (inputDisplay.placeholder === "NaN") {
+    alert("Sorry Wrong Input Please Press C to restart");
+  } else if (inputDisplay.placeholder === "undefined") {
+    alert("Sorry Wrong Input Please Press C to restart");
+  }
 }
 
 // we need to reset our function once we obtain our results
@@ -97,7 +103,6 @@ const resetNums = () => {
       secondNumberString = "";
     });
   }
-  decimal.setAttribute("disabled", true);
 
   operation();
 };
