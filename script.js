@@ -113,7 +113,7 @@ const mathFunction = (id) => {
   switch (id) {
     case "remainder":
       return firstNumberString % secondNumberString;
-    case "divide":
+    case "division":
       return firstNumberString / secondNumberString;
     case "add":
       return firstNumberString + secondNumberString;
